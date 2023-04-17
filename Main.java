@@ -1,43 +1,17 @@
-import java.math.BigDecimal;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 
 public class Main {
-    static final String DB_URL = "jdbc:postgresql://localhost:5432/test";
-    static final String USER = "postgres";
-    static final String PASS = "554400";
-    static final String QUERY = "select u.login, u.email, ua.account_number, ua.currency " +
-            "from users u join user_account ua on u._id = ua.id_users";
-
     public static void main(String[] args) {
-        ArrayList<UserWithAccount> list = new ArrayList<>();
-        HashMap<String, BigDecimal> hashMap = new HashMap<>();
-        try(Connection com = DriverManager.getConnection(DB_URL, USER, PASS);
-            Statement stmt = com.createStatement();
-            ResultSet rs = stmt.executeQuery(QUERY)) {
-             while (rs.next()) {
-                 UserWithAccount user = new UserWithAccount();
-                 user.setLogin(rs.getString("login"));
-                 user.setEmail(rs.getString("email"));
-                 user.setAccount_number(rs.getString("account_number"));
-                 user.setCurrency(rs.getBigDecimal("currency"));
-
-                 System.out.println(user.toString());
-                 list.add(user);
-             }
-
-             for (UserWithAccount user : list){
-                 hashMap.put(user.getLogin(), user.getCurrency());
-
-             }
-            for (Map.Entry<String, BigDecimal> sum: hashMap.entrySet()) {
-                System.out.println("login = " + sum.getKey() + "\ncurrency = " + sum.getValue());
-            }
-            } catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
+        LocalDateTime ld1 = LocalDateTime.of(2009,9,28,15,45,15);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+        Calendar calendar = Calendar.getInstance();
+        System.out.println("Заданное время: " + ld1.format(dateTimeFormatter));
+        System.out.println("День недели: " + ld1.getDayOfWeek());
+        System.out.println("День в году: " + ld1.getDayOfYear());
+        System.out.println("Номер недели в месяце: " + calendar.getWeekYear());
+        System.out.println("День недели: " + ld1.getDayOfWeek());
+        System.out.println("Номер месяца года: " + ld1.getMonthValue());
     }
-
+}
