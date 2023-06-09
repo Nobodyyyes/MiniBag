@@ -1,0 +1,51 @@
+body {
+	 background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(235,208,101,0.1629785703343838) 50%, rgba(0,212,255,1) 100%);
+}
+.cube1 {
+	width: 500px;
+	height: 500px;
+	background-color: white;
+	margin-left: 500px;
+	margin-top: 100px;
+	border-radius: 10px;
+	 background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(224,0,163,0.8380485983455882) 96%, rgba(0,212,255,1) 100%);
+}
+.enter_name {
+	position: absolute;
+	margin-left: 170px;
+	margin-top: 150px;
+}
+.enter_login {
+	position: absolute;;
+	margin-top: 200px;
+	margin-left: 170px;
+}
+.enter_number {
+	position: absolute;;
+	margin-top: 250px;
+	margin-left: 170px;
+}
+.confirm {
+	position: absolute;
+	margin-left: 100px;
+	margin-top: 350px;
+	width: 120px;
+	height: 30px;
+}
+.confirm:hover {
+	background-color: green;
+	border-radius: 10px;
+}
+.cancel {
+	position: absolute;
+	margin-left: 280px;
+	margin-top: 350px;
+	width: 120px;
+	height: 30px;
+}
+.cancel:hover {
+	background-color: red;
+	border-radius: 10px;
+}

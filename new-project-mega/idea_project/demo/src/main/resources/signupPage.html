@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Test </title>
+    <link rel="stylesheet" type="text/css" href="signupPageCss.css">
+</head>
+<body>
+<p>ID: ${}</p>
+
+<div class="cube1">
+    <form class="enter_name" th:action="@{login}">
+        <input type="text" name="enterName" th:field="login" placeholder="Введите ID">
+    </form>
+
+    <form class="enter_login">
+        <input type="text" name="enterLogin" placeholder="Введите login">
+    </form>
+
+    <form class="enter_number">
+        <input type="text" name="enterNumber" placeholder="Введите number">
+    </form>
+
+    <button class="confirm">
+        Confirm
+    </button>
+
+    <button class="cancel">
+        Cancel
+    </button>
+
+</div>
+</body>
+</html>
